@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!C:\Users\Daniel\PycharmProjects\Deep-Reinforcment-Learning\venv\Scripts\python.exe
+=======
+#!C:\Users\micha\Desktop\Deep-Reinforcment-Learning\venv\Scripts\python.exe
+>>>>>>> 7c86e6e4ddde80cfb4659121b546208b41b38724
 # EASY-INSTALL-ENTRY-SCRIPT: 'setuptools==40.8.0','console_scripts','easy_install'
 __requires__ = 'setuptools==40.8.0'
 import re

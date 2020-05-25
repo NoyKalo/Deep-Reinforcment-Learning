@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!C:\Users\Daniel\PycharmProjects\Deep-Reinforcment-Learning\venv\Scripts\python.exe
+=======
+#!C:\Users\micha\Desktop\Deep-Reinforcment-Learning\venv\Scripts\python.exe
+>>>>>>> 7c86e6e4ddde80cfb4659121b546208b41b38724
 # EASY-INSTALL-ENTRY-SCRIPT: 'pip==19.0.3','console_scripts','pip'
 __requires__ = 'pip==19.0.3'
 import re
