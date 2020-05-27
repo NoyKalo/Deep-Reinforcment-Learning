@@ -5,7 +5,7 @@ import xlrd
 from World import World
 import numpy as np
 
-def Question(transition_matrix, rewardFuncation, gamma, theta):
+def Question(transition_matrix, reward_function, gamma, theta):
     policy_action = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
     opt_value = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
     flag = 1
@@ -14,7 +14,7 @@ def Question(transition_matrix, rewardFuncation, gamma, theta):
         opt_value_temp = opt_value.copy()
         for s in range(0,16):
             prob_of_s = np.transpose(transition_matrix[:,s,:])
-            policy_reward = np.reshape((gamma * np.matmul(np.reshape(opt_value, (1,16)), prob_of_s))  + np.reshape(rewardFuncation[s, :], (1, 4)), (4))
+            policy_reward = np.reshape((gamma * np.matmul(np.reshape(opt_value, (1,16)), prob_of_s))  + np.reshape(reward_function[s, :], (1, 4)), (4))
             opt_value[s] = np.max(policy_reward)
             policy_action[s] = np.argmax(policy_reward) + 1
             delta = float(max(delta, float(abs(opt_value[s] - opt_value_temp[s]))))
@@ -57,10 +57,10 @@ if __name__== "__main__":
     transition_matrix[3, :, :] = data_west.to_numpy()
 
     # Q2.2 - value iteration gamma = 1 step_cost = -0.04 theta = 10^-4"
-    Question(transition_matrix = transition_matrix, rewardFuncation = rewardFuncation(step_cost = -0.04), gamma = 1, theta = 0.0001)
+    Question(transition_matrix = transition_matrix, reward_function = rewardFuncation(step_cost = -0.04), gamma = 1, theta = 0.0001)
     # Q2.3 - value iteration gamma = 0.9 step_cost = -0.04 theta = 10^-4"
-    Question(transition_matrix = transition_matrix, rewardFuncation = rewardFuncation(step_cost = -0.04), gamma = 0.9, theta = 0.0001)
+    Question(transition_matrix = transition_matrix, reward_function = rewardFuncation(step_cost = -0.04), gamma = 0.9, theta = 0.0001)
     # Q2.4 - value iteration gamma = 1 step_cost = -0.02 theta = 10^-4"
-    Question(transition_matrix = transition_matrix, rewardFuncation = rewardFuncation(step_cost = -0.02), gamma = 1, theta = 0.0001)
+    Question(transition_matrix = transition_matrix, reward_function = rewardFuncation(step_cost = -0.02), gamma = 1, theta = 0.0001)
     a = 4
 
